@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron S. Rogers - Gospel Music Ministry</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts (Gospel/Classic feel) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* ===== CUSTOM STYLES ===== */
+    :root {
+      --gold: #D4AF37;
+      --dark: #1a0e0b;
+      --warm: #2c1810;
+      --light: #faf6f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* ----- NAVBAR ----- */
+    .navbar {
+      background: rgba(26, 14, 11, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      padding: 12px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--gold) !important;
+      letter-spacing: 2px;
+    }
+
+    .navbar-brand span {
+      color: #fff;
+      font-weight: 300;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 18px !important;
+      transition: all 0.3s ease;
+      border-radius: 30px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold) !important;
+      background: rgba(212, 175, 55, 0.15);
+    }
+
+    /* ----- HERO SECTION ----- */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--dark) 0%, #2c1810 50%, #1a0e0b 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .hero-content h1 .gold {
+      color: var(--gold);
+    }
+
+    .hero-content p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.25rem;
+      max-width: 500px;
+      margin: 20px 0 30px;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      border: 3px solid var(--gold);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 700;
+      padding: 12px 40px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+    }
+
+    .btn-gold:hover {
+      background: #c5a030;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      color: #000;
+    }
+
+    .btn-outline-gold {
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-weight: 600;
+      padding: 12px 35px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    /* ----- SECTION TITLES ----- */
+    .section-title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 10px;
+    }
+
+    .section-title.text-center::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ----- MUSIC CARDS ----- */
+    .music-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(212,175,55,0.1);
+      height: 100%;
+    }
+
+    .music-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(212, 175, 55, 0.15);
+      border-color: var(--gold);
+    }
+
+    .music-card .icon {
+      font-size: 3rem;
+      color: var(--gold);
+    }
+
+    /* ----- EVENT CARDS ----- */
+    .event-card {
+      background: #fff;
+      border-left: 5px solid var(--gold);
+      padding: 20px 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .event-card:hover {
+      transform: translateX(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .event-date {
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    /* ----- GALLERY ----- */
+    .gallery-img {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .gallery-img img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+
+    .gallery-img:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-img .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(212, 175, 55, 0.2);
+      opacity: 0;
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-img:hover .overlay {
+      opacity: 1;
+    }
+
+    /* ----- CONTACT FORM ----- */
+    .contact-form {
+      background: #fff;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    }
+
+    .form-control {
+      border: 2px solid #e0d6c8;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--dark);
+      color: #fff;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--gold);
+      color: var(--dark);
+      transform: translateY(-5px);
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      padding: 50px 0 25px;
+    }
+
+    footer h5 {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    footer .gold {
+      color: var(--gold);
+    }
+
+    /* ----- RESPONSIVE TWEAKS ----- */
+    @media (max-width: 991px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-image {
+        margin-top: 40px;
+      }
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+      .contact-form {
+        padding: 25px;
+      }
+      .hero {
+        min-height: auto;
+        padding: 120px 0 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Aaron S. Rogers <span> Music</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#music">Music</a></li>
+        <li class="nav-item"><a class="nav-link" href="#media">Media</a></li>
+        <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HOME / HERO
+     ============================================================ -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 hero-content">
+        <h1>Raising Souls <br><span class="gold">Through Gospel</span> Music</h1>
+        <p>Welcome to the official ministry of <strong>Aaron S. Rogers Music</strong> — spreading hope, faith, and love through spirit-filled melodies.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#music" class="btn btn-gold">Listen Now</a>
+          <a href="#contact" class="btn btn-outline-gold">Book Ministry</a>
+        </div>
+        <div class="mt-4">
+          <a href="#" class="social-icon me-2" style="width:45px;height:45px;font-size:1.2rem;"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="social-icon me-2" style="width:45px;height:45px;font-size:1.2rem;"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon me-2" style="width:45px;height:45px;font-size:1.2rem;"><i class="bi bi-spotify"></i></a>
+          <a href="#" class="social-icon" style="width:45px;height:45px;font-size:1.2rem;"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-image text-center">
+        <img src="assert/images/4.jpeg" alt="Gospel Musician" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="py-5" style="background: #fff;">
+  <div class="container py-4">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <img src="assert/images/7.jpeg" alt="About" class="img-fluid rounded-4 shadow"/>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="section-title">About My Ministry</h2>
+        <p class="mt-4 fs-5" style="color:#444;">I am <strong>Aaron S. Rogers</strong>, a gospel musician called to minister through songs of deliverance, worship, and praise.</p>
+        <p style="color:#555;">With over a decade of music ministry, my heart is to see lives transformed by the power of God's word in melody. Every song carries a message of hope for the broken, healing for the sick, and joy for the weary.</p>
+        <div class="row mt-4 g-3">
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill" style="color:var(--gold);"></i> 5 Albums Released</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill" style="color:var(--gold);"></i> 200+ Concerts</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill" style="color:var(--gold);"></i> 15 Nations Visited</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill" style="color:var(--gold);"></i> 50K+ Souls Reached</div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-gold mt-4">Partner With Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MUSIC
+     ============================================================ -->
+<section id="music" class="py-5" style="background: var(--light);">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-center">My Music</h2>
+      <p class="text-muted mt-3">Stream these anthems of faith on your favorite platform</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Album 1 -->
+      <div class="col-md-4">
+        <div class="music-card text-center">
+          <div class="icon mb-3"><i class="bi bi-vinyl-fill"></i></div>
+          <h4>Winds of Glory</h4>
+          <p class="text-muted">2025 • 12 Tracks</p>
+          <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-play-circle"></i> Listen</a>
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-apple"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-spotify"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Album 2 -->
+      <div class="col-md-4">
+        <div class="music-card text-center">
+          <div class="icon mb-3"><i class="bi bi-vinyl-fill"></i></div>
+          <h4>Redeemed</h4>
+          <p class="text-muted">2024 • 10 Tracks</p>
+          <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-play-circle"></i> Listen</a>
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-apple"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-spotify"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Album 3 -->
+      <div class="col-md-4">
+        <div class="music-card text-center">
+          <div class="icon mb-3"><i class="bi bi-vinyl-fill"></i></div>
+          <h4>Morning Prayer</h4>
+          <p class="text-muted">2023 • 8 Tracks</p>
+          <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-play-circle"></i> Listen</a>
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-apple"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-dark"><i class="bi bi-spotify"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="#" class="btn btn-outline-gold">View All Discography <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MEDIA / GALLERY
+     ============================================================ -->
+<section id="media" class="py-5" style="background: #fff;">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-center">Media Gallery</h2>
+      <p class="text-muted">Moments from ministry and worship</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4 col-sm-6">
+        <div class="gallery-img">
+          <img src="assert/images/1.jpeg" alt="Worship" />
+          <div class="overlay"><i class="bi bi-search" style="font-size:2rem;color:#fff;"></i></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="gallery-img">
+          <img src="assert/images/2.jpeg" alt="Concert" />
+          <div class="overlay"><i class="bi bi-search" style="font-size:2rem;color:#fff;"></i></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="gallery-img">
+          <img src="assert/images/3.jpeg" alt="Studio" />
+          <div class="overlay"><i class="bi bi-search" style="font-size:2rem;color:#fff;"></i></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="gallery-img">
+          <img src="assert/images/4.jpeg" alt="Choir" />
+          <div class="overlay"><i class="bi bi-search" style="font-size:2rem;color:#fff;"></i></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="gallery-img">
+          <img src="assert/images/5.jpeg" alt="Performance" />
+          <div class="overlay"><i class="bi bi-search" style="font-size:2rem;color:#fff;"></i></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="gallery-img">
+          <img src="assert/images/6.jpeg" alt="Praise" />
+          <div class="overlay"><i class="bi bi-search" style="font-size:2rem;color:#fff;"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EVENTS
+     ============================================================ -->
+<section id="events" class="py-5" style="background: var(--light);">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-center">Upcoming Events</h2>
+      <p class="text-muted">Come worship with me in person</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="event-card d-flex flex-wrap justify-content-between align-items-center">
+          <div>
+            <span class="event-date"><i class="bi bi-calendar-event me-2"></i>July 25, 2026</span>
+            <h5 class="mb-1">Night of Worship & Deliverance</h5>
+            <p class="text-muted mb-0"><i class="bi bi-geo-alt"></i> Faith Cathedral, Lagos</p>
+          </div>
+          <a href="#" class="btn btn-sm btn-gold mt-2 mt-sm-0">Get Ticket</a>
+        </div>
+
+        <div class="event-card d-flex flex-wrap justify-content-between align-items-center">
+          <div>
+            <span class="event-date"><i class="bi bi-calendar-event me-2"></i>Aug 8, 2026</span>
+            <h5 class="mb-1">Gospel Music Conference</h5>
+            <p class="text-muted mb-0"><i class="bi bi-geo-alt"></i> Dominion Arena, Accra</p>
+          </div>
+          <a href="#" class="btn btn-sm btn-gold mt-2 mt-sm-0">Register</a>
+        </div>
+
+        <div class="event-card d-flex flex-wrap justify-content-between align-items-center">
+          <div>
+            <span class="event-date"><i class="bi bi-calendar-event me-2"></i>Sept 12, 2026</span>
+            <h5 class="mb-1">Praise Explosion Tour</h5>
+            <p class="text-muted mb-0"><i class="bi bi-geo-alt"></i> City of Praise, Nairobi</p>
+          </div>
+          <a href="#" class="btn btn-sm btn-gold mt-2 mt-sm-0">RSVP</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact" class="py-5" style="background: #fff;">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-center">Get In Touch</h2>
+      <p class="text-muted">For bookings, collaborations, or prayer requests</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <div class="contact-form">
+          <h4 class="mb-3">Send a Message</h4>
+          <form>
+            <div class="mb-3">
+              <label class="form-label fw-bold">Your Name</label>
+              <input type="text" class="form-control" placeholder="Enter your name" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-bold">Email Address</label>
+              <input type="email" class="form-control" placeholder="you@example.com" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-bold">Subject</label>
+              <select class="form-select">
+                <option>Booking Inquiry</option>
+                <option>Prayer Request</option>
+                <option>Partnership</option>
+                <option>General Message</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-bold">Message</label>
+              <textarea class="form-control" rows="5" placeholder="Write your message..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold w-100">Send Message <i class="bi bi-send"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <h4>Connect With Me</h4>
+        <p class="text-muted">Reach out through any of these channels</p>
+        <div class="mt-4">
+          <p><i class="bi bi-envelope-fill" style="color:var(--gold);font-size:1.5rem;"></i> <strong>Email:</strong> aaron@musicministry.com</p>
+          <p><i class="bi bi-phone-fill" style="color:var(--gold);font-size:1.5rem;"></i> <strong>Phone:</strong> +231 777 195 341</p>
+          <p><i class="bi bi-geo-alt-fill" style="color:var(--gold);font-size:1.5rem;"></i> <strong>Location:</strong> Monrovia, Liberia</p>
+        </div>
+        <div class="mt-4 d-flex flex-wrap">
+          <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-spotify"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+        </div>
+        <div class="mt-4 p-4" style="background:var(--light);border-radius:16px;border-left:5px solid var(--gold);">
+          <p class="mb-0"><em>"Let everything that hath breath praise the Lord." — Psalm 150:6</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5 class="gold">Aaron S. Rogers Music</h5>
+        <p>Spreading the Gospel through spirit-filled music. Restoring hope, one song at a time.</p>
+        <div>
+          <a href="#" class="text-white me-3" style="font-size:1.3rem;"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="text-white me-3" style="font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white me-3" style="font-size:1.3rem;"><i class="bi bi-spotify"></i></a>
+          <a href="#" class="text-white" style="font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#home" class="text-white-50 text-decoration-none">Home</a></li>
+          <li><a href="#about" class="text-white-50 text-decoration-none">About</a></li>
+          <li><a href="#music" class="text-white-50 text-decoration-none">Music</a></li>
+          <li><a href="#events" class="text-white-50 text-decoration-none">Events</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h5>Ministry</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white-50 text-decoration-none">Online Church</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Prayer Line</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Testimonies</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">Donate</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5>Stay Updated</h5>
+        <p class="text-white-50">Subscribe for new music and tour dates</p>
+        <div class="input-group">
+          <input type="email" class="form-control" placeholder="Your email" style="border-radius:30px 0 0 30px;" />
+          <button class="btn btn-gold" style="border-radius:0 30px 30px 0;">Join</button>
+        </div>
+      </div>
+    </div>
+    <hr class="mt-4" style="border-color:rgba(255,255,255,0.1);" />
+    <div class="text-center text-white-50 small">
+      &copy; 2026 Aaron S. Rogers Music. All rights reserved. | Built with <i class="bi bi-heart-fill" style="color:var(--gold);"></i> for His glory.
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Smooth active nav link update on scroll -->
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 150;
+      if (pageYOffset >= top) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
